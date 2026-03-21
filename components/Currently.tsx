@@ -4,8 +4,8 @@ import { useInView } from "@/hooks/useInView";
 const cards = [
   {
     emoji: "🏃",
-    text: "Training for the Pyramids Half Marathon",
-    sub: "December 2026",
+    text: "Training for a full marathon",
+    sub: null,
   },
   {
     emoji: "⚡",

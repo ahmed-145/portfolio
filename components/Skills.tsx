@@ -1,6 +1,8 @@
 "use client";
 import { useInView } from "@/hooks/useInView";
 
+// Change 3: Added Express, REST APIs, Prisma, JWT to Backend;
+// NumPy, Pytest to ML & AI; new Mobile & Web group with Next.js, React, Swift, SwiftUI
 const skillGroups = [
   {
     label: "Languages",
@@ -8,7 +10,7 @@ const skillGroups = [
   },
   {
     label: "Backend",
-    items: ["Node.js", "Flask", "FastAPI", "Spring Boot", "PostgreSQL", "Redis", "MongoDB"],
+    items: ["Node.js", "Express", "REST APIs", "Flask", "FastAPI", "Spring Boot", "PostgreSQL", "Redis", "MongoDB", "Prisma", "JWT"],
   },
   {
     label: "DevOps",
@@ -20,7 +22,11 @@ const skillGroups = [
   },
   {
     label: "ML & AI",
-    items: ["scikit-learn", "RAG", "Ollama", "Groq", "Pandas", "SMOTE", "Streamlit"],
+    items: ["scikit-learn", "RAG", "Ollama", "Groq", "Pandas", "NumPy", "SMOTE", "Streamlit", "Pytest"],
+  },
+  {
+    label: "Mobile & Web",
+    items: ["Next.js", "React", "Swift", "SwiftUI"],
   },
 ];
 

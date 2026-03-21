@@ -10,19 +10,8 @@ interface ExperienceEntry {
   bullets: string[];
 }
 
+// Change 2: DEPI first (ended Dec 2025), NBK second (ended Sep 2025) — newest-first
 const experience: ExperienceEntry[] = [
-  {
-    company: "NBK Egypt",
-    role: "R&D Intern — Development & Application Management",
-    duration: "Aug 2025 – Sep 2025",
-    location: "New Cairo, Cairo, Egypt",
-    note: "extended by 2 weeks based on performance",
-    bullets: [
-      "Delivered 4 AI/ML and backend prototypes across 6 weeks: loan risk predictor, OFAC sanctions screener, encrypted PDF portal, and Outlook→SFTP automation.",
-      "Applied RAG, fuzzy matching (Levenshtein/Jaro-Winkler), hybrid encryption (RSA-2048/AES-256-GCM), and Spring Boot in a live banking environment.",
-      "Integrated with Temenos T24 core banking system and Oracle enterprise databases (1,000+ tables).",
-    ],
-  },
   {
     company: "Digital Egypt Pioneers Initiative (MCIT – EYouth)",
     role: "DevOps Engineering Trainee",
@@ -34,6 +23,18 @@ const experience: ExperienceEntry[] = [
       "Built reusable IaC modules with Terraform and Ansible to provision 5+ environments.",
       "Deployed and monitored containerized microservices on Kubernetes with Prometheus and Grafana.",
       "Capstone: production URL shortener with 3 Grafana dashboards, K8s HPA, Terraform IaC, CI/CD, and load tested at 225 req/sec.",
+    ],
+  },
+  {
+    company: "NBK Egypt",
+    role: "R&D Intern — Development & Application Management",
+    duration: "Aug 2025 – Sep 2025",
+    location: "New Cairo, Cairo, Egypt",
+    note: "extended by 2 weeks based on performance",
+    bullets: [
+      "Delivered 4 AI/ML and backend prototypes across 6 weeks: loan risk predictor, OFAC sanctions screener, encrypted PDF portal, and Outlook→SFTP automation.",
+      "Applied RAG, fuzzy matching (Levenshtein/Jaro-Winkler), hybrid encryption (RSA-2048/AES-256-GCM), and Spring Boot in a live banking environment.",
+      "Integrated with Temenos T24 core banking system and Oracle enterprise databases (1,000+ tables).",
     ],
   },
   {

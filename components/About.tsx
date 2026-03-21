@@ -21,22 +21,13 @@ export default function About() {
           {/* Left — Prose */}
           <div className="space-y-5 text-[#a1a1aa] leading-relaxed text-base">
             <p>
-              Senior Software Engineering student at KSIU graduating June 2026, with a strong focus on backend development
-              and DevOps. I build production-grade systems — a Redis clone from scratch in Rust, an AI-powered code review
-              platform with RAG and full CI/CD, and a complete observability stack handling{" "}
-              <span className="text-[#f4f4f5]">225 req/sec</span>.
-            </p>
-            <p>
-              I was selected for Egypt&apos;s nationally sponsored{" "}
-              <span className="text-[#6366f1] font-medium">DEPI DevOps program</span> and completed a 6-week R&amp;D
-              internship at{" "}
-              <span className="text-[#6366f1] font-medium">NBK Egypt</span> — extended by 2 weeks based on performance —
-              where I shipped four working prototypes to internal banking teams. I also compete in ICPC and earned an
-              Honorable Mention at the 2024 ECPC Qualifications.
-            </p>
-            <p>
-              Open to remote backend, DevOps, and SRE roles from July 2026.{" "}
-              <span className="text-[#f4f4f5]">UTC+2</span> — good overlap with European teams.
+              Backend and DevOps engineer with production experience across banking, compliance, and infrastructure.
+            Built an AI-powered code review platform from scratch, shipped four prototypes to{" "}
+            <span className="text-[#6366f1] font-medium">NBK Egypt&apos;s</span> internal banking teams, and delivered a
+            full observability stack handling{" "}
+            <span className="text-[#f4f4f5]">225 req/sec</span> under Egypt&apos;s nationally sponsored{" "}
+            <span className="text-[#6366f1] font-medium">DEPI program</span>. Graduating June 2026 — available for
+            remote and on-site roles from July.
             </p>
           </div>
 
@@ -75,7 +66,7 @@ export default function About() {
                 <div className="pl-2 space-y-0.5">
                   <div>
                     <span className="text-[#6366f1]">→</span>{" "}
-                    <span className="text-[#71717a]">open to remote roles</span>
+                    <span className="text-[#71717a]">open to remote &amp; on-site roles</span>
                   </div>
                   <div>
                     <span className="text-[#6366f1]">→</span>{" "}
