@@ -125,7 +125,7 @@ export default function Projects() {
 
         {/* More work */}
         <div>
-          <p className="font-mono text-xs text-[#3f3f46] mb-5">// more work</p>
+          <p className="font-mono text-xs text-[#3f3f46] mb-5">{"// more work"}</p>
           <div className="border border-[#1a1a1a] rounded-lg overflow-hidden bg-[#0d0d0d]">
             {moreWork.map((p, i) => (
               <div
