@@ -27,7 +27,7 @@ export default function Currently() {
     <section
       id="currently"
       ref={ref as React.RefObject<HTMLElement>}
-      className="py-16 px-6"
+      className="pt-16 pb-8 px-6"
     >
       <div className={`max-w-[1100px] mx-auto transition-all duration-700 ${inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
         <h2 className="font-mono text-2xl md:text-3xl font-bold mb-10">
@@ -40,7 +40,7 @@ export default function Currently() {
           {cards.map((card) => (
             <div
               key={card.text}
-              className="bg-[#111111] border border-[#1a1a1a] rounded-lg p-5 hover:border-[#27272a] transition-colors duration-200"
+              className="bg-[#111111] border border-[#1a1a1a] rounded-lg p-4 hover:border-[#27272a] transition-colors duration-200"
             >
               <span className="text-2xl mb-3 block" role="img" aria-hidden="true">
                 {card.emoji}

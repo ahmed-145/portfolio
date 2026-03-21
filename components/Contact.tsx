@@ -10,7 +10,7 @@ export default function Contact() {
     <section
       id="contact"
       ref={ref as React.RefObject<HTMLElement>}
-      className="py-16 px-6"
+      className="pt-12 pb-16 px-6"
     >
       <div className={`max-w-[1100px] mx-auto transition-all duration-700 ${inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
         <h2 className="font-mono text-2xl md:text-3xl font-bold mb-10">
@@ -30,7 +30,7 @@ export default function Contact() {
         <div className="flex flex-col gap-6 mb-16">
           <a
             href="mailto:ahmedabbass871@gmail.com"
-            className="flex items-center gap-4 group w-full sm:w-fit min-h-[44px]"
+            className="flex items-center gap-4 group w-full sm:w-fit min-h-[44px] py-1"
           >
             <span className="w-10 h-10 flex items-center justify-center rounded-lg bg-[#111111] border border-[#1a1a1a] group-hover:border-[#6366f1] transition-colors duration-200 shrink-0">
               <Mail size={18} className="text-[#71717a] group-hover:text-[#6366f1] transition-colors duration-200" />
@@ -44,7 +44,7 @@ export default function Contact() {
             href="https://github.com/ahmed-145"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-4 group w-full sm:w-fit min-h-[44px]"
+            className="flex items-center gap-4 group w-full sm:w-fit min-h-[44px] py-1"
           >
             <span className="w-10 h-10 flex items-center justify-center rounded-lg bg-[#111111] border border-[#1a1a1a] group-hover:border-[#6366f1] transition-colors duration-200 shrink-0">
               <Github size={18} className="text-[#71717a] group-hover:text-[#6366f1] transition-colors duration-200" />
@@ -58,7 +58,7 @@ export default function Contact() {
             href="https://www.linkedin.com/in/ahmed-mahmoud-abbas/"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-4 group w-full sm:w-fit min-h-[44px]"
+            className="flex items-center gap-4 group w-full sm:w-fit min-h-[44px] py-1"
           >
             <span className="w-10 h-10 flex items-center justify-center rounded-lg bg-[#111111] border border-[#1a1a1a] group-hover:border-[#6366f1] transition-colors duration-200 shrink-0">
               <Linkedin size={18} className="text-[#71717a] group-hover:text-[#6366f1] transition-colors duration-200" />

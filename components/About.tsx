@@ -9,7 +9,7 @@ export default function About() {
     <section
       id="about"
       ref={ref as React.RefObject<HTMLElement>}
-      className="py-16 px-6"
+      className="pt-16 pb-8 px-6"
     >
       <div className={`max-w-[1100px] mx-auto transition-all duration-700 ${inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
         {/* Heading */}

@@ -48,16 +48,6 @@ const experience: ExperienceEntry[] = [
       "Assisted with ERP user support and access provisioning.",
     ],
   },
-  {
-    company: "COP27 — UN Climate Change Conference",
-    role: "Youth Volunteer · via KSIU",
-    duration: "Nov 2022",
-    location: "Sharm El Sheikh, Egypt",
-    bullets: [
-      "Selected as a youth volunteer representing KSIU at the UN Climate Change Conference.",
-      "Supported delegate coordination, session facilitation, and the Green Challenge sustainability competition in partnership with Schneider Electric.",
-    ],
-  },
 ];
 
 export default function Experience() {
