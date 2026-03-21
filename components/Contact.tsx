@@ -1,12 +1,11 @@
 "use client";
 import { useInView } from "@/hooks/useInView";
-import { Mail, Github, Linkedin } from "lucide-react";
+import { Mail, Github, Linkedin, Code2 } from "lucide-react";
 
 export default function Contact() {
   const { ref, inView } = useInView();
 
   return (
-    // Fix 1: py-24 → py-16
     <section
       id="contact"
       ref={ref as React.RefObject<HTMLElement>}
@@ -25,51 +24,71 @@ export default function Contact() {
           <p className="text-[#f4f4f5]">If you&apos;re building something serious, let&apos;s talk.</p>
         </div>
 
-        {/* Fix 6: larger links (text-lg), bigger icons (w-5 h-5), gap-6, hover indigo color shift */}
-        {/* Fix 9: full-width tappable links on mobile (min-h touch target via py-2) */}
+        {/* Fix 3: text-lg, w-5 h-5 icons, gap-6, hover indigo. Fix 4: LeetCode added */}
         <div className="flex flex-col gap-6 mb-16">
+          {/* Email */}
           <a
             href="mailto:ahmedabbass871@gmail.com"
             className="flex items-center gap-4 group w-full sm:w-fit min-h-[44px] py-1"
           >
-            <span className="w-10 h-10 flex items-center justify-center rounded-lg bg-[#111111] border border-[#1a1a1a] group-hover:border-[#6366f1] transition-colors duration-200 shrink-0">
-              <Mail size={18} className="text-[#71717a] group-hover:text-[#6366f1] transition-colors duration-200" />
+            <span className="w-10 h-10 flex items-center justify-center rounded-lg bg-[#111111] border border-[#1a1a1a] group-hover:border-[#6366f1] transition-colors duration-150 shrink-0">
+              <Mail className="w-5 h-5 text-[#71717a] group-hover:text-[#6366f1] transition-colors duration-150" />
             </span>
-            <span className="font-mono text-lg text-[#a1a1aa] group-hover:text-[#6366f1] transition-colors duration-200 underline-offset-4 group-hover:underline">
+            <span className="font-mono text-lg text-[#a1a1aa] group-hover:text-indigo-400 transition-colors duration-150 underline-offset-4 group-hover:underline">
               ahmedabbass871@gmail.com
             </span>
           </a>
 
+          {/* GitHub */}
           <a
             href="https://github.com/ahmed-145"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-4 group w-full sm:w-fit min-h-[44px] py-1"
           >
-            <span className="w-10 h-10 flex items-center justify-center rounded-lg bg-[#111111] border border-[#1a1a1a] group-hover:border-[#6366f1] transition-colors duration-200 shrink-0">
-              <Github size={18} className="text-[#71717a] group-hover:text-[#6366f1] transition-colors duration-200" />
+            <span className="w-10 h-10 flex items-center justify-center rounded-lg bg-[#111111] border border-[#1a1a1a] group-hover:border-[#6366f1] transition-colors duration-150 shrink-0">
+              <Github className="w-5 h-5 text-[#71717a] group-hover:text-[#6366f1] transition-colors duration-150" />
             </span>
-            <span className="font-mono text-lg text-[#a1a1aa] group-hover:text-[#6366f1] transition-colors duration-200 underline-offset-4 group-hover:underline">
+            <span className="font-mono text-lg text-[#a1a1aa] group-hover:text-indigo-400 transition-colors duration-150 underline-offset-4 group-hover:underline">
               github.com/ahmed-145
             </span>
           </a>
 
+          {/* LinkedIn */}
           <a
             href="https://www.linkedin.com/in/ahmed-mahmoud-abbas/"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-4 group w-full sm:w-fit min-h-[44px] py-1"
           >
-            <span className="w-10 h-10 flex items-center justify-center rounded-lg bg-[#111111] border border-[#1a1a1a] group-hover:border-[#6366f1] transition-colors duration-200 shrink-0">
-              <Linkedin size={18} className="text-[#71717a] group-hover:text-[#6366f1] transition-colors duration-200" />
+            <span className="w-10 h-10 flex items-center justify-center rounded-lg bg-[#111111] border border-[#1a1a1a] group-hover:border-[#6366f1] transition-colors duration-150 shrink-0">
+              <Linkedin className="w-5 h-5 text-[#71717a] group-hover:text-[#6366f1] transition-colors duration-150" />
             </span>
-            <span className="font-mono text-lg text-[#a1a1aa] group-hover:text-[#6366f1] transition-colors duration-200 underline-offset-4 group-hover:underline">
+            <span className="font-mono text-lg text-[#a1a1aa] group-hover:text-indigo-400 transition-colors duration-150 underline-offset-4 group-hover:underline">
               linkedin.com/in/ahmed-mahmoud-abbas
+            </span>
+          </a>
+
+          {/* LeetCode — Fix 4 */}
+          <a
+            href="https://leetcode.com/u/Ahmeed145/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-4 group w-full sm:w-fit min-h-[44px] py-1"
+          >
+            <span className="w-10 h-10 flex items-center justify-center rounded-lg bg-[#111111] border border-[#1a1a1a] group-hover:border-[#6366f1] transition-colors duration-150 shrink-0">
+              <Code2 className="w-5 h-5 text-[#71717a] group-hover:text-[#6366f1] transition-colors duration-150" />
+            </span>
+            <span className="flex items-baseline gap-2 flex-wrap">
+              <span className="font-mono text-lg text-[#a1a1aa] group-hover:text-indigo-400 transition-colors duration-150 underline-offset-4 group-hover:underline">
+                leetcode.com/u/Ahmeed145
+              </span>
+              <span className="font-mono text-sm text-[#52525b]">— 255 solved (129M · 16H) · C++</span>
             </span>
           </a>
         </div>
 
-        {/* Fix 10: mt-16 + border-t border-zinc-800 separator */}
+        {/* Footer */}
         <div className="mt-16 border-t border-zinc-800 pt-8">
           <p className="font-mono text-xs text-[#3f3f46] text-center">
             Built by Ahmed Mahmoud Abbas &nbsp;·&nbsp; 2026 &nbsp;·&nbsp; Cairo, Egypt

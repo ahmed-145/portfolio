@@ -31,7 +31,7 @@ export default function Hero() {
           I build systems
           <br />
           <span className="text-[#6366f1]">that ship.</span>
-          <span className="cursor-blink">|</span>
+          <span className="cursor-blink text-indigo-400">|</span>
         </h1>
 
         {/* Fix 2: Two intentional lines — no orphaned text */}
