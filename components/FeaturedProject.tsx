@@ -11,10 +11,11 @@ export default function FeaturedProject() {
   const { ref, inView } = useInView();
 
   return (
+    // Fix 1: py-24 → py-16
     <section
       id="featured"
       ref={ref as React.RefObject<HTMLElement>}
-      className="py-24 px-6"
+      className="py-16 px-6"
     >
       <div className={`max-w-[1100px] mx-auto transition-all duration-700 ${inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
         {/* Heading */}
@@ -67,7 +68,7 @@ export default function FeaturedProject() {
             ))}
           </div>
 
-          {/* Stack badges */}
+          {/* Fix 8: flex flex-wrap gap-2 on badge container */}
           <div className="flex flex-wrap gap-2 mb-8">
             {stack.map((s) => (
               <span

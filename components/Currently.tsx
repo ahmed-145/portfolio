@@ -23,10 +23,11 @@ export default function Currently() {
   const { ref, inView } = useInView();
 
   return (
+    // Fix 1: py-24 → py-16
     <section
       id="currently"
       ref={ref as React.RefObject<HTMLElement>}
-      className="py-24 px-6"
+      className="py-16 px-6"
     >
       <div className={`max-w-[1100px] mx-auto transition-all duration-700 ${inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
         <h2 className="font-mono text-2xl md:text-3xl font-bold mb-10">
@@ -34,6 +35,7 @@ export default function Currently() {
           <span className="text-[#f4f4f5]">currently</span>
         </h2>
 
+        {/* Fix 4: compact cards (p-5), Fix 9: single col on mobile with gap-4 */}
         <div className="grid sm:grid-cols-3 gap-4">
           {cards.map((card) => (
             <div

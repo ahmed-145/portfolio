@@ -26,16 +26,18 @@ export default function Hero() {
         </p>
 
         {/* Tagline */}
-        <h1 className="font-mono text-5xl md:text-7xl font-bold text-[#f4f4f5] leading-tight mb-2">
+        {/* Fix 9: text-4xl on mobile */}
+        <h1 className="font-mono text-4xl md:text-7xl font-bold text-[#f4f4f5] leading-tight mb-2">
           I build systems
           <br />
           <span className="text-[#6366f1]">that ship.</span>
           <span className="cursor-blink">|</span>
         </h1>
 
-        {/* Sub-line */}
-        <p className="mt-6 text-[#71717a] text-base md:text-lg max-w-xl mx-auto leading-relaxed">
-          Backend &amp; DevOps Engineer &nbsp;·&nbsp; Final-year CS @ KSIU &nbsp;·&nbsp; Graduating June 2026
+        {/* Fix 2: Two intentional lines — no orphaned text */}
+        <p className="mt-6 text-[#71717a] text-base md:text-lg mx-auto leading-relaxed text-center">
+          <span className="block">Backend &amp; DevOps Engineer &nbsp;·&nbsp; Final-year CS @ KSIU</span>
+          <span className="block mt-1">Graduating June 2026 &nbsp;—&nbsp; Available July 2026</span>
         </p>
 
         {/* CTA Buttons */}
@@ -72,7 +74,7 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Bottom fade */}
+      {/* Bottom scroll hint */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-[#3f3f46]">
         <span className="font-mono text-xs">scroll</span>
         <div className="w-px h-8 bg-gradient-to-b from-[#3f3f46] to-transparent" />

@@ -65,9 +65,10 @@ const moreWork = [
   { name: "Custom Shell", stack: ["C++", "Linux", "execvp"], github: "https://github.com/ahmed-145/Custom_Shell" },
 ];
 
+// Fix 7: identical hover on all cards — border-indigo-500/50 + translateY(-2px) via card-hover class (already in globals.css)
 function ProjectCard({ project }: { project: Project }) {
   return (
-    <div className="group bg-[#111111] border border-[#1a1a1a] rounded-lg p-6 flex flex-col gap-4 card-hover relative">
+    <div className="group bg-[#111111] border border-[#1a1a1a] rounded-lg p-6 flex flex-col gap-4 card-hover relative transition-all duration-200">
       {project.badge && (
         <span className="absolute top-4 right-4 font-mono text-[10px] font-bold px-2 py-0.5 rounded border border-[#22d3ee] text-[#22d3ee] tracking-widest uppercase bg-[#22d3ee]/5">
           {project.badge}
@@ -80,7 +81,8 @@ function ProjectCard({ project }: { project: Project }) {
         <p className="text-[#6366f1] font-mono text-xs mt-1">{project.oneliner}</p>
       </div>
       <p className="text-[#71717a] text-sm leading-relaxed flex-1">{project.description}</p>
-      <div className="flex flex-wrap gap-1.5">
+      {/* Fix 8: flex flex-wrap gap-2 */}
+      <div className="flex flex-wrap gap-2">
         {project.stack.map((s) => (
           <span key={s} className="font-mono text-[10px] uppercase tracking-wider px-2 py-0.5 rounded border border-[#6366f1]/25 text-[#6366f1]/80 bg-[#6366f1]/5">
             {s}
@@ -104,10 +106,11 @@ export default function Projects() {
   const { ref, inView } = useInView();
 
   return (
+    // Fix 1: py-24 → py-16
     <section
       id="projects"
       ref={ref as React.RefObject<HTMLElement>}
-      className="py-24 px-6"
+      className="py-16 px-6"
     >
       <div className={`max-w-[1100px] mx-auto transition-all duration-700 ${inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
         {/* Heading */}
@@ -126,16 +129,19 @@ export default function Projects() {
         {/* More work */}
         <div>
           <p className="font-mono text-xs text-[#3f3f46] mb-5">{"// more work"}</p>
-          <div className="border border-[#1a1a1a] rounded-lg overflow-hidden bg-[#0d0d0d]">
+          {/* Fix 9: overflow-x-auto for mobile so badges don't overflow */}
+          <div className="border border-[#1a1a1a] rounded-lg overflow-x-auto bg-[#0d0d0d]">
             {moreWork.map((p, i) => (
               <div
                 key={p.name}
-                className={`flex flex-wrap items-center gap-3 px-5 py-3.5 ${
+                className={`flex flex-wrap items-center gap-3 px-5 py-3.5 min-w-0 ${
                   i !== moreWork.length - 1 ? "border-b border-[#1a1a1a]" : ""
-                } hover:bg-[#111111] transition-colors duration-150`}
+                } hover:bg-[#111111] transition-colors duration-150 group`}
               >
-                <span className="font-mono text-sm text-[#a1a1aa] min-w-[140px]">{p.name}</span>
-                <div className="flex flex-wrap gap-1.5 flex-1">
+                {/* Fix 7: subtle name color shift on hover for compact rows */}
+                <span className="font-mono text-sm text-[#a1a1aa] group-hover:text-[#e4e4e7] transition-colors duration-150 min-w-[140px]">{p.name}</span>
+                {/* Fix 8: gap-2 */}
+                <div className="flex flex-wrap gap-2 flex-1">
                   {p.stack.map((s) => (
                     <span
                       key={s}

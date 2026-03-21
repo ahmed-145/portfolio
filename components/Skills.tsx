@@ -37,7 +37,7 @@ export default function Skills() {
     <section
       id="skills"
       ref={ref as React.RefObject<HTMLElement>}
-      className="py-24 px-6"
+      className="py-16 px-6"
     >
       <div className={`max-w-[1100px] mx-auto transition-all duration-700 ${inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
         <h2 className="font-mono text-2xl md:text-3xl font-bold mb-12">

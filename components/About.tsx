@@ -5,10 +5,11 @@ export default function About() {
   const { ref, inView } = useInView();
 
   return (
+    // Fix 1: py-24 → py-16
     <section
       id="about"
       ref={ref as React.RefObject<HTMLElement>}
-      className="py-24 px-6"
+      className="py-16 px-6"
     >
       <div className={`max-w-[1100px] mx-auto transition-all duration-700 ${inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
         {/* Heading */}
@@ -17,25 +18,31 @@ export default function About() {
           <span className="text-[#f4f4f5]">about</span>
         </h2>
 
-        <div className="grid md:grid-cols-2 gap-12 items-start">
+        {/* Fix 3B: items-stretch so both columns reach the same height */}
+        <div className="grid md:grid-cols-2 gap-12 items-stretch">
           {/* Left — Prose */}
+          {/* Fix 9: single column on mobile (default) */}
           <div className="space-y-5 text-[#a1a1aa] leading-relaxed text-base">
             <p>
               Backend and DevOps engineer with production experience across banking, compliance, and infrastructure.
-            Built an AI-powered code review platform from scratch, shipped four prototypes to{" "}
-            <span className="text-[#6366f1] font-medium">NBK Egypt&apos;s</span> internal banking teams, and delivered a
-            full observability stack handling{" "}
-            <span className="text-[#f4f4f5]">225 req/sec</span> under Egypt&apos;s nationally sponsored{" "}
-            <span className="text-[#6366f1] font-medium">DEPI program</span>. Graduating June 2026 — available for
-            remote and on-site roles from July.
+              Built an AI-powered code review platform from scratch, shipped four prototypes to{" "}
+              <span className="text-[#6366f1] font-medium">NBK Egypt&apos;s</span> internal banking teams, and delivered a
+              full observability stack handling{" "}
+              <span className="text-[#f4f4f5]">225 req/sec</span> under Egypt&apos;s nationally sponsored{" "}
+              <span className="text-[#6366f1] font-medium">DEPI program</span>. Graduating June 2026 — available for
+              remote and on-site roles from July.
+            </p>
+            {/* Fix 3A: third sentence for prose height balance */}
+            <p>
+              I&apos;m drawn to systems where reliability and performance aren&apos;t optional — observability, fault
+              tolerance, and clean architecture are things I think about from day one.
             </p>
           </div>
 
           {/* Right — Terminal block */}
           <div className="relative">
             <div
-              className="relative bg-[#0d0d0d] border border-[#1a1a1a] rounded-lg p-5 font-mono text-sm terminal-scanlines overflow-hidden"
-              style={{ minHeight: "200px" }}
+              className="relative bg-[#0d0d0d] border border-[#1a1a1a] rounded-lg p-5 font-mono text-sm terminal-scanlines overflow-hidden h-full"
             >
               {/* Terminal dots */}
               <div className="flex gap-1.5 mb-4">

@@ -5,10 +5,11 @@ export default function Recognition() {
   const { ref, inView } = useInView();
 
   return (
+    // Fix 5: py-12 since it's a small single-card section
     <section
       id="recognition"
       ref={ref as React.RefObject<HTMLElement>}
-      className="py-24 px-6"
+      className="py-12 px-6"
     >
       <div className={`max-w-[1100px] mx-auto transition-all duration-700 ${inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
         <h2 className="font-mono text-2xl md:text-3xl font-bold mb-10">
@@ -16,8 +17,9 @@ export default function Recognition() {
           <span className="text-[#f4f4f5]">recognition</span>
         </h2>
 
-        <div className="max-w-lg">
-          <div className="bg-[#111111] border border-[#1a1a1a] rounded-lg p-6">
+        {/* Fix 5: centered, max-w-2xl, indigo left border to feel intentional */}
+        <div className="max-w-2xl mx-auto">
+          <div className="bg-[#111111] border border-[#1a1a1a] border-l-[4px] border-l-[#6366f1] rounded-lg p-6">
             <div className="flex items-start gap-4">
               <span className="text-2xl" role="img" aria-label="trophy">🏆</span>
               <div>
