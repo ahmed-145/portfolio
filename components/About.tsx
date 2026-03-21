@@ -29,10 +29,10 @@ export default function About() {
               <span className="text-[#6366f1] font-medium">NBK Egypt&apos;s</span> internal banking teams, and delivered a
               full observability stack handling{" "}
               <span className="text-[#f4f4f5]">225 req/sec</span> under Egypt&apos;s nationally sponsored{" "}
-              <span className="text-[#6366f1] font-medium">DEPI program</span>. Graduating June 2026 — available for
-              remote and on-site roles from July.
+              <span className="text-[#6366f1] font-medium">DEPI program</span>. I was selected for ICPC and earned
+              an Honorable Mention at the 2024 ECPC Qualifications. Graduating June 2026 — available for remote and
+              on-site roles from July.
             </p>
-            {/* Fix 3A: third sentence for prose height balance */}
             <p>
               I&apos;m drawn to systems where reliability and performance aren&apos;t optional — observability, fault
               tolerance, and clean architecture are things I think about from day one.
