@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Ahmed Mahmoud Abbas — Backend & DevOps Engineer",
     description:
-      "Backend and DevOps engineer building production-grade systems. Open to remote and on-site roles from July 2026.",
+      "Backend and DevOps engineer building production-grade systems. Open to remote and on-site roles — available now.",
     type: "website",
   },
 };

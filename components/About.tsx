@@ -31,7 +31,7 @@ export default function About() {
               <span className="text-[#f4f4f5]">225 req/sec</span> under Egypt&apos;s nationally sponsored{" "}
               <span className="text-[#6366f1] font-medium">DEPI program</span>. I was selected for ICPC and earned
               an Honorable Mention at the 2024 ECPC Qualifications. Graduating June 2026 — available for remote and
-              on-site roles from July. I&apos;m drawn to systems where reliability and performance aren&apos;t optional
+              on-site roles — available now for the right opportunity. I&apos;m drawn to systems where reliability and performance aren&apos;t optional
               — observability, fault tolerance, and clean architecture are things I think about from day one.
             </p>
           </div>
@@ -74,7 +74,7 @@ export default function About() {
                   </div>
                   <div>
                     <span className="text-[#6366f1]">→</span>{" "}
-                    <span className="text-[#71717a]">available july 2026</span>
+                    <span className="text-[#71717a]">available now</span>
                   </div>
                   <div>
                     <span className="text-[#6366f1]">→</span>{" "}

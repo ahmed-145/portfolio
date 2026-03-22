@@ -19,7 +19,7 @@ export default function Contact() {
 
         {/* Copy */}
         <div className="max-w-2xl mb-12 space-y-2 text-[#a1a1aa] text-base leading-relaxed">
-          <p>Graduating June 2026. Available from July 2026.</p>
+          <p>Graduating June 2026. Available now for the right opportunity.</p>
           <p>Open to backend, DevOps, and SRE positions — remote or on-site. UTC+2, great overlap with European teams.</p>
           <p className="text-[#f4f4f5]">If you&apos;re building something serious, let&apos;s talk.</p>
         </div>
