@@ -1,4 +1,5 @@
 import Hero from "@/components/Hero";
+import MetricsBar from "@/components/MetricsBar";
 import About from "@/components/About";
 import FeaturedProject from "@/components/FeaturedProject";
 import Projects from "@/components/Projects";
@@ -12,6 +13,7 @@ export default function Home() {
   return (
     <main>
       <Hero />
+      <MetricsBar />
       <About />
       <FeaturedProject />
       <Projects />
