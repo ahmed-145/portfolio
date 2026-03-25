@@ -2,9 +2,9 @@
 import { useInView } from "@/hooks/useInView";
 
 const stats = [
-  { value: "4", label: "production systems shipped" },
-  { value: "273", label: "tests · <6s runtime" },
-  { value: "225", label: "req/sec peak load" },
+  { value: "4", label: "projects shipped" },
+  { value: "273", label: "automated tests" },
+  { value: "225", label: "req/sec throughput" },
   { value: "3", label: "internships" },
 ];
 
