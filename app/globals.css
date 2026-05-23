@@ -5,6 +5,10 @@
 :root {
   --foreground: #f4f4f5;
   --background: #0a0a0a;
+
+  /* Strong custom easings — built-in CSS easings lack punch */
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
 }
 
 * {
@@ -12,15 +16,69 @@
 }
 
 html {
-  scroll-behavior: smooth;
+  /* scroll-behavior: smooth; — Lenis handles smooth scroll; CSS override would double-smooth */
+  scrollbar-color: #27272a #0a0a0a;
+  scrollbar-width: thin;
 }
 
 body {
   background-color: #0a0a0a;
   color: #f4f4f5;
   font-family: var(--font-inter), system-ui, sans-serif;
+  font-feature-settings: "ss01", "cv11", "kern";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Display headings — tighter tracking, the Inter Display feel */
+h1, h2 {
+  letter-spacing: -0.02em;
+}
+
+/* Body grain overlay — fixed, pointer-events-none, very low opacity */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.6 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  mix-blend-mode: overlay;
+}
+
+/* Scroll progress bar — fixed top edge */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #6366f1, #22d3ee);
+  z-index: 50;
+  transform-origin: 0 50%;
+  transform: scaleX(0);
+  will-change: transform;
+  pointer-events: none;
+}
+
+/* Branded selection — invisible details compound */
+::selection {
+  background-color: rgba(99, 102, 241, 0.35);
+  color: #f4f4f5;
+}
+::-moz-selection {
+  background-color: rgba(99, 102, 241, 0.35);
+  color: #f4f4f5;
+}
+
+/* Keyboard-only focus ring. :focus-visible leaves mouse clicks alone. */
+:focus {
+  outline: none;
+}
+:focus-visible {
+  outline: 2px solid #6366f1;
+  outline-offset: 3px;
+  border-radius: 4px;
 }
 
 /* Grid background pattern for hero */
@@ -31,7 +89,7 @@ body {
   background-size: 64px 64px;
 }
 
-/* Blinking cursor animation */
+/* Blinking cursor — identity, not motion. Paused when tab hidden via JS. */
 @keyframes blink {
   0%, 100% { opacity: 1; }
   50% { opacity: 0; }
@@ -43,24 +101,44 @@ body {
   font-weight: 300;
 }
 
-/* Scroll fade-in animation */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(24px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.fade-in-up {
-  animation: fadeInUp 0.6s ease forwards;
-}
-
-.opacity-0 {
+/* Reveal utility — used on every section wrapper */
+.reveal {
   opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 500ms var(--ease-out), transform 500ms var(--ease-out);
+  will-change: opacity, transform;
+}
+.reveal.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger children — applied to a container after it becomes visible.
+   Children use --stagger-index to compute their delay. */
+.stagger > * {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 500ms var(--ease-out), transform 500ms var(--ease-out);
+  transition-delay: calc(var(--stagger-index, 0) * 55ms);
+  will-change: opacity, transform;
+}
+.stagger.in-view > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Word-stagger — for hero headline. Each word has its own --word-index. */
+.word-stagger > span {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 600ms var(--ease-out), transform 600ms var(--ease-out);
+  transition-delay: calc(var(--word-index, 0) * 70ms);
+  will-change: opacity, transform;
+}
+.word-stagger.in-view > span {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* Terminal scanline overlay */
@@ -93,14 +171,320 @@ body {
   background: linear-gradient(to bottom, #6366f1, rgba(99, 102, 241, 0.1));
 }
 
-/* Card hover glow */
+/* Card hover — specific properties, strong easing, gated to hover-capable devices.
+   Inner highlight on hover catches light, makes the lift feel physical.
+   Spotlight: a radial gradient at the cursor position (set via --spot-x/y from
+   useSpotlight) fades in on hover. The signature Emil/Vercel detail. */
 .card-hover {
-  transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
+  isolation: isolate;
+  transition:
+    border-color 180ms var(--ease-out),
+    transform 180ms var(--ease-out),
+    box-shadow 180ms var(--ease-out);
+  will-change: transform;
 }
-.card-hover:hover {
-  border-color: rgba(99, 102, 241, 0.5) !important;
-  transform: translateY(-2px);
-  box-shadow: 0 0 20px rgba(99, 102, 241, 0.1);
+.card-hover::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    320px circle at var(--spot-x, 50%) var(--spot-y, 50%),
+    rgba(99, 102, 241, 0.12),
+    transparent 55%
+  );
+  opacity: 0;
+  transition: opacity 220ms var(--ease-out);
+  pointer-events: none;
+  z-index: 0;
+}
+.card-hover > * { position: relative; z-index: 1; }
+@media (hover: hover) and (pointer: fine) {
+  .card-hover:hover {
+    border-color: rgba(99, 102, 241, 0.5) !important;
+    transform: translateY(-2px);
+    box-shadow:
+      0 8px 24px -8px rgba(99, 102, 241, 0.18),
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.04);
+  }
+  .card-hover:hover::before { opacity: 1; }
+}
+.card-hover:active {
+  transform: translateY(-1px) scale(0.995);
+  transition-duration: 100ms;
+}
+
+/* Pressable — buttons & CTAs. Asymmetric: snappy press, smooth release. */
+.pressable {
+  transition:
+    background-color 160ms var(--ease-out),
+    border-color 160ms var(--ease-out),
+    color 160ms var(--ease-out),
+    transform 160ms var(--ease-out);
+  will-change: transform;
+}
+.pressable:active {
+  transform: scale(0.97);
+  transition-duration: 100ms;
+}
+
+/* Magnetic — useMagnetic writes transform directly. Smooth interpolation. */
+.magnetic {
+  transition: transform 250ms var(--ease-out);
+  will-change: transform;
+}
+
+/* Spotlight container (hero) — large soft radial that tracks cursor */
+.hero-spotlight {
+  position: relative;
+  isolation: isolate;
+}
+.hero-spotlight::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    600px circle at var(--spot-x, 50%) var(--spot-y, 30%),
+    rgba(99, 102, 241, 0.08),
+    transparent 60%
+  );
+  pointer-events: none;
+  z-index: 0;
+  transition: opacity 400ms var(--ease-out);
+}
+.hero-spotlight > * { position: relative; z-index: 1; }
+
+/* Section heading — terminal "#" with a quiet underline that grows on view */
+.section-heading {
+  position: relative;
+  display: inline-block;
+}
+.section-heading::after {
+  content: '';
+  position: absolute;
+  left: 1.5rem;
+  bottom: -8px;
+  height: 2px;
+  width: 0;
+  background: linear-gradient(90deg, #6366f1, rgba(99, 102, 241, 0));
+  transition: width 700ms var(--ease-out) 200ms;
+}
+.in-view .section-heading::after {
+  width: 100%;
+}
+
+/* Right-rail section dots */
+.section-rail {
+  position: fixed;
+  right: 24px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  z-index: 40;
+  pointer-events: none;
+}
+.section-rail a {
+  pointer-events: auto;
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: #27272a;
+  display: block;
+  transition:
+    background-color 220ms var(--ease-out),
+    transform 220ms var(--ease-out),
+    width 220ms var(--ease-out);
+}
+.section-rail a[data-active="true"] {
+  background: #6366f1;
+  width: 18px;
+}
+@media (hover: hover) and (pointer: fine) {
+  .section-rail a:hover { background: #6366f1; }
+}
+@media (max-width: 900px) {
+  .section-rail { display: none; }
+}
+
+/* Project tabs — left rail / right pane layout */
+.tab-rail-item {
+  position: relative;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  border-radius: 8px;
+  transition:
+    background-color 200ms var(--ease-out),
+    color 200ms var(--ease-out);
+}
+.tab-rail-item::before {
+  /* Indigo left accent on active */
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 8px;
+  bottom: 8px;
+  width: 2px;
+  background: #6366f1;
+  transform: scaleY(0);
+  transform-origin: center;
+  transition: transform 280ms var(--ease-out);
+  border-radius: 2px;
+}
+.tab-rail-item[data-active="true"]::before {
+  transform: scaleY(1);
+}
+@media (hover: hover) and (pointer: fine) {
+  .tab-rail-item[data-active="false"]:hover {
+    background-color: rgba(99, 102, 241, 0.04);
+  }
+}
+
+/* Cross-fade content swap. Each new active project keys this element,
+   triggering the entrance animation. Blur during entry bridges the visual
+   gap (Emil: "blur masks imperfect transitions"). */
+@keyframes tabContentIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+    filter: blur(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+.tab-pane-content {
+  animation: tabContentIn 380ms var(--ease-out);
+}
+
+/* Mobile rail — becomes a horizontal scroller above the pane */
+.tab-rail-mobile {
+  display: none;
+}
+@media (max-width: 767px) {
+  .tab-rail-desktop { display: none; }
+  .tab-rail-mobile {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    padding-bottom: 4px;
+    margin-bottom: 16px;
+  }
+  .tab-rail-mobile::-webkit-scrollbar { display: none; }
+  .tab-chip {
+    flex-shrink: 0;
+    font-family: var(--font-geist-mono), ui-monospace, monospace;
+    font-size: 12px;
+    padding: 8px 14px;
+    border-radius: 999px;
+    border: 1px solid #1a1a1a;
+    background: #111111;
+    color: #71717a;
+    cursor: pointer;
+    transition: color 180ms var(--ease-out), border-color 180ms var(--ease-out), background-color 180ms var(--ease-out);
+    white-space: nowrap;
+  }
+  .tab-chip[data-active="true"] {
+    color: #f4f4f5;
+    border-color: #6366f1;
+    background: rgba(99, 102, 241, 0.08);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tab-pane-content { animation: none; }
+  .tab-rail-item::before { transition: none; }
+}
+
+/* Copy-button state morph */
+.copy-trigger .copy-icon-default,
+.copy-trigger .copy-icon-copied {
+  transition: opacity 180ms var(--ease-out), transform 180ms var(--ease-out);
+}
+.copy-trigger .copy-icon-copied {
+  opacity: 0;
+  transform: scale(0.85);
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.copy-trigger[data-copied="true"] .copy-icon-default {
+  opacity: 0;
+  transform: scale(0.85);
+}
+.copy-trigger[data-copied="true"] .copy-icon-copied {
+  opacity: 1;
+  transform: scale(1);
+}
+.copy-trigger .copy-label-default,
+.copy-trigger .copy-label-copied {
+  transition: opacity 180ms var(--ease-out);
+}
+.copy-trigger .copy-label-copied {
+  opacity: 0;
+  color: #4ade80;
+}
+.copy-trigger[data-copied="true"] .copy-label-default {
+  opacity: 0;
+}
+.copy-trigger[data-copied="true"] .copy-label-copied {
+  opacity: 1;
+}
+
+/* Tag chips — lift on hover, press on click */
+.tag-chip {
+  transition:
+    color 150ms var(--ease-out),
+    border-color 150ms var(--ease-out),
+    background-color 150ms var(--ease-out),
+    transform 150ms var(--ease-out);
+}
+@media (hover: hover) and (pointer: fine) {
+  .tag-chip:hover {
+    transform: translateY(-1px);
+  }
+}
+.tag-chip:active {
+  transform: scale(0.97);
+  transition-duration: 90ms;
+}
+
+/* Link with directional arrow */
+.link-arrow {
+  transition: color 160ms var(--ease-out);
+}
+.link-arrow .arrow {
+  transition: transform 200ms var(--ease-out);
+  display: inline-block;
+}
+@media (hover: hover) and (pointer: fine) {
+  .link-arrow:hover .arrow {
+    transform: translateX(3px);
+  }
+}
+
+/* Contact row — icon nudges with the text on hover */
+.contact-row .contact-icon-wrap {
+  transition:
+    border-color 160ms var(--ease-out),
+    background-color 160ms var(--ease-out),
+    transform 200ms var(--ease-out);
+}
+.contact-row .contact-icon {
+  transition: color 160ms var(--ease-out);
+}
+@media (hover: hover) and (pointer: fine) {
+  .contact-row:hover .contact-icon-wrap {
+    transform: translateX(2px);
+  }
 }
 
 /* Scrollbar styling */
@@ -116,4 +500,89 @@ body {
 }
 ::-webkit-scrollbar-thumb:hover {
   background: #3f3f46;
+}
+
+/* ─── Command Palette ─────────────────────────────────────── */
+.cmd-overlay {
+  background: rgba(0, 0, 0, 0.72);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  animation: cmdOverlayIn 140ms var(--ease-out) both;
+}
+@keyframes cmdOverlayIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+.cmd-panel {
+  animation: cmdPanelIn 200ms var(--ease-out) both;
+  box-shadow:
+    0 0 0 1px rgba(99,102,241,0.12),
+    0 24px 80px -12px rgba(0,0,0,0.8),
+    0 8px 32px -8px rgba(99,102,241,0.08);
+}
+@keyframes cmdPanelIn {
+  from { opacity: 0; transform: translateY(-12px) scale(0.965); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+.cmd-item {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  transition: background-color 80ms var(--ease-out);
+}
+.cmd-item[data-selected="true"] {
+  background-color: rgba(99, 102, 241, 0.09);
+}
+.cmd-item[data-selected="true"] .cmd-arrow {
+  color: #6366f1 !important;
+}
+.cmd-item[data-selected="true"] .cmd-icon svg {
+  color: #6366f1 !important;
+}
+@media (prefers-reduced-motion: reduce) {
+  .cmd-overlay, .cmd-panel { animation: none; }
+}
+
+/* ─── Lenis — disable CSS smooth scroll when Lenis takes over ─ */
+html.lenis, html.lenis body {
+  height: auto;
+}
+html.lenis body {
+  scrollbar-gutter: stable;
+}
+
+/* ─── Reduced motion — keep opacity, drop transforms and translateY reveals ─ */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal,
+  .stagger > *,
+  .word-stagger > span {
+    transform: none !important;
+    transition: opacity 200ms ease !important;
+  }
+  .card-hover,
+  .pressable,
+  .tag-chip,
+  .link-arrow .arrow,
+  .contact-row .contact-icon-wrap {
+    transition: color 160ms ease, background-color 160ms ease, border-color 160ms ease !important;
+  }
+  .card-hover:hover,
+  .card-hover:active,
+  .pressable:active,
+  .tag-chip:hover,
+  .tag-chip:active,
+  .link-arrow:hover .arrow,
+  .contact-row:hover .contact-icon-wrap {
+    transform: none !important;
+  }
+  .cursor-blink {
+    animation: none;
+    opacity: 1;
+  }
+  .magnetic {
+    transform: none !important;
+  }
 }
