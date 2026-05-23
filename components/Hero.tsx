@@ -81,8 +81,8 @@ export default function Hero() {
         <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
           <a
             ref={cvRef}
-            href="/Ahmed_Mahmoud_Abbas_Resume.pdf"
-            download
+            href="/Ahmed_Mahmoud_Abbas_Local.pdf"
+            download="Ahmed_Mahmoud_Abbas_Resume.pdf"
             aria-label="Download Resume PDF"
             className="magnetic pressable inline-flex items-center gap-2 px-6 py-3 bg-[#6366f1] text-white font-mono text-sm font-medium rounded-lg hover:bg-[#5254cc]"
           >
