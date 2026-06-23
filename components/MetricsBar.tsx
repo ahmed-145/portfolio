@@ -6,7 +6,7 @@ type Stat = { value: number; suffix?: string; label: string; duration: number };
 
 const stats: Stat[] = [
   { value: 8, label: "projects shipped", duration: 700 },
-  { value: 273, label: "automated tests", duration: 1100 },
+  { value: 3147, suffix: "+", label: "automated tests", duration: 1100 },
   { value: 225, suffix: " req/sec", label: "req/sec throughput", duration: 1100 },
   { value: 3, label: "internships", duration: 700 },
 ];
