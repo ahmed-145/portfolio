@@ -24,7 +24,7 @@ const NAV_SECTIONS = [
 ];
 
 const PROJECTS = [
-  { id: "acr-qa", label: "ACR-QA", subtitle: "AI code review platform · Flask, Cerebras AI, RAG", href: "/projects/acr-qa", github: "https://github.com/ahmed-145/ACR-QA" },
+  { id: "acr-qa", label: "ACR-QA", subtitle: "Deterministic security scanner · Python, FastAPI · #1 on RealVuln, beats GPT-5.5 at $0", href: "/projects/acr-qa", github: "https://github.com/ahmed-145/ACR-QA" },
   { id: "kim", label: "Kim", subtitle: "Cross-platform AI agent · Rust, Tauri, Python, MCP", href: "/projects/kim", github: "https://github.com/AdamMagued/kim" },
   { id: "cinegraph", label: "CineGraph", subtitle: "Semantic film discovery canvas · React, Qdrant", href: "/projects/cinegraph", github: "https://github.com/ahmed-145/CineGraph" },
   { id: "minutemark", label: "MinuteMark", subtitle: "AI exam grading · FastAPI, Groq, Gemini", href: "/projects/minutemark", github: "https://github.com/ahmed-145/MinuteMark" },

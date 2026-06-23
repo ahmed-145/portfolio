@@ -5,23 +5,23 @@ import { ExternalLink } from "lucide-react";
 import Link from "next/link";
 
 const stack = [
-  "Flask", "PostgreSQL", "Redis", "Prometheus",
-  "Grafana", "Cerebras AI", "RAG", "Docker", "GitHub Actions",
+  "Python", "FastAPI", "AST + Taint", "Semgrep", "Docker",
+  "ECDSA + Dilithium3", "PostgreSQL", "Redis", "GitHub Actions",
 ];
 
 const pipeline = [
   { label: "GitHub Push", icon: "↑" },
   { label: "CI/CD", icon: "⚙" },
-  { label: "ACR-QA Engine", icon: "✦", accent: true },
-  { label: "PostgreSQL + Redis", icon: "🗄" },
-  { label: "Grafana", icon: "📊" },
+  { label: "Deterministic Engine", icon: "✦", accent: true },
+  { label: "Exploit Verifier", icon: "🧪" },
+  { label: "Attestation", icon: "🔏" },
 ];
 
 const features = [
-  { title: "RAG-powered review", body: "Hallucination detection via retrieval-augmented generation. Reviews are grounded in actual code, not model priors.", accent: "#6366f1" },
-  { title: "Policy-as-Code engine", body: "Teams write custom rules in a YAML DSL. ACR-QA enforces them on every PR — security patterns, naming conventions, coverage gates.", accent: "#6366f1" },
-  { title: "Test Gap Analyzer", body: "Detects untested code paths and surfaces them as actionable review comments. Not just coverage %, but which paths are actually unguarded.", accent: "#6366f1" },
-  { title: "Developer Fatigue Tuner", body: "Learns which feedback categories a team dismisses. Signal-to-noise ratio improves over time without manual configuration.", accent: "#6366f1" },
+  { title: "#1 on RealVuln — beats GPT-5.5 at $0", body: "58.8% recall on the RealVuln 2026 benchmark — edging out GPT-5.5 (58.2%), Opus 4.8, and Gemini, and ~3.3× Semgrep — at $0 vs the LLM agents' $54–62 per scan.", accent: "#6366f1" },
+  { title: "Deterministic — no hallucinations", body: "No LLM in the detection path, so every scan returns the exact same finding set (bit-identical, CI-enforced). LLM scanners miss 23–52% of their own findings on the next run.", accent: "#6366f1" },
+  { title: "Exploit verification — proof, not guesses", body: "Each high-severity finding is detonated in an ephemeral Docker sandbox before it's surfaced: SQLi shows leaked rows, command injection shows blind exec. Only verified findings auto-block.", accent: "#6366f1" },
+  { title: "Post-quantum attestation", body: "Every scan is signed with ECDSA-P256 and a post-quantum CRYSTALS-Dilithium3 (FIPS-204) signature — both verifiable offline, so tampering with the findings invalidates the bundle.", accent: "#6366f1" },
 ];
 
 export default function FeaturedProject() {
@@ -48,7 +48,7 @@ export default function FeaturedProject() {
                 ACR-QA
               </h3>
               <p className="text-[#6366f1] font-mono text-sm mt-1">
-                AI-powered automated code review &amp; quality assurance platform
+                Deterministic security scanner — no LLM, no hallucinations
               </p>
             </div>
             <span className="font-mono text-[10px] font-bold px-2.5 py-1 rounded border border-[#4ade80] text-[#4ade80] tracking-widest uppercase bg-[#4ade80]/5 whitespace-nowrap shrink-0 mt-1">
@@ -58,18 +58,18 @@ export default function FeaturedProject() {
 
           {/* Description */}
           <p className="text-[#a1a1aa] text-base leading-relaxed max-w-3xl mb-8">
-            Enterprise-grade CI/CD platform that brings intelligent code review into any development pipeline.
-            RAG-powered hallucination detection using Cerebras AI, Policy-as-Code for custom rule enforcement,
-            a Test Gap Analyzer, OWASP security automation, and a Developer Fatigue Tuner.
-            273 tests running in under 6 seconds. Full CI green.
+            A fully deterministic security scanner — no LLM in the detection path. On the RealVuln 2026
+            benchmark it out-recalls every frontier-LLM agent, including GPT-5.5, at $0 and with the same
+            auditable answer every run. It proves the findings it surfaces are real by firing a live exploit
+            in a Docker sandbox, then signs every scan with ECDSA-P256 + post-quantum Dilithium3. Built solo.
           </p>
 
           {/* Stats */}
           <div className="flex flex-wrap gap-4 mb-8">
             {[
-              { value: "273", label: "tests" },
-              { value: "<6s", label: "test runtime" },
-              { value: "100%", label: "CI pass rate" },
+              { value: "58.8%", label: "RealVuln recall · #1" },
+              { value: "$0", label: "cost per scan" },
+              { value: "3,147", label: "tests" },
             ].map((stat) => (
               <div
                 key={stat.label}

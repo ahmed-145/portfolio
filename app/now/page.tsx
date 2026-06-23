@@ -10,7 +10,7 @@ const NOW_ENTRIES = [
   {
     category: "work",
     items: [
-      "Finishing my graduation project ACR-QA — AI-powered code review platform with RAG, Policy-as-Code, and OWASP automation.",
+      "Open-sourcing ACR-QA — my deterministic security scanner that out-recalls GPT-5.5 on the RealVuln 2026 benchmark at $0, with exploit-verified and cryptographically-signed findings. Graduation project, defended.",
       "Completing the DEPI DevOps program under Egypt's Ministry of Communications. Capstone: production URL shortener with enterprise-grade observability.",
       "Interned at NBK Egypt (extended by 2 weeks) — shipped 4 AI/ML prototypes into a live banking environment.",
     ],

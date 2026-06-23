@@ -11,7 +11,7 @@ const COMMANDS: Record<string, string[]> = {
     "nbu egypt intern · depi graduate · icpc competitor",
   ],
   "ls projects/": [
-    "acr-qa/         → ai-powered code review platform",
+    "acr-qa/         → deterministic security scanner · beats gpt-5.5 at $0",
     "kim/            → cross-platform ai agent (rust + python)",
     "cinegraph/      → semantic film discovery canvas",
     "minutemark/     → ai exam grading, validated vs humans",
@@ -33,7 +33,7 @@ const COMMANDS: Record<string, string[]> = {
   "git log --oneline": [
     "a1b2c3d (head) built redis from scratch in rust",
     "f4e5d6c shipped kim — ai agent with full os control",
-    "7g8h9i0 acr-qa: 273 tests, <6s runtime, 100% ci green",
+    "7g8h9i0 acr-qa: #1 on realvuln (58.8%) · beats gpt-5.5 · 3,147 tests",
     "j1k2l3m delivered 4 prototypes to nbk egypt r&d",
     "n4o5p6q icpc selected · ecpc 2024 honorable mention",
   ],
@@ -140,8 +140,8 @@ export default function About() {
           <div className="space-y-5 text-[#a1a1aa] leading-relaxed text-base">
             <p>
               Backend and DevOps engineer with production experience across banking, compliance,
-              and infrastructure. Built an AI-powered code review platform from scratch, shipped
-              four prototypes to{" "}
+              and infrastructure. Built a deterministic security scanner from scratch that out-recalls
+              GPT-5.5 at $0, shipped four prototypes to{" "}
               <span className="text-[#6366f1] font-medium">NBK Egypt&apos;s</span> internal teams,
               and delivered a full observability stack handling{" "}
               <span className="text-[#f4f4f5]">225 req/sec</span> under Egypt&apos;s nationally

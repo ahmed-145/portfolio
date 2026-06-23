@@ -18,8 +18,8 @@ const UPCOMING = [
     status: "drafting",
   },
   {
-    title: "RAG Without the Hallucinations: How ACR-QA Grounds AI Code Review in Reality",
-    tags: ["AI", "RAG", "Cerebras"],
+    title: "No AI, No Hallucinations: How a Deterministic Scanner Out-Recalled GPT-5.5 at $0",
+    tags: ["Security", "Static Analysis", "Determinism"],
     status: "planning",
   },
   {

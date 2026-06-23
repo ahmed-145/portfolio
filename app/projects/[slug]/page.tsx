@@ -46,70 +46,72 @@ const CASE_STUDIES: Record<string, CaseStudy> = {
     name: "ACR-QA",
     badge: "GRADUATION PROJECT",
     badgeColor: "green",
-    oneliner: "AI-powered automated code review & quality assurance platform",
+    oneliner: "Deterministic security scanner — no LLM, no hallucinations — that out-recalls GPT-5.5 at $0",
     github: "https://github.com/ahmed-145/ACR-QA",
-    stack: ["Flask", "PostgreSQL", "Redis", "Prometheus", "Grafana", "Cerebras AI", "RAG", "Docker", "GitHub Actions"],
+    stack: ["Python", "FastAPI", "AST + Taint Engine", "Semgrep", "Docker", "PostgreSQL", "Redis", "ECDSA + Dilithium3", "GitHub Actions"],
     stats: [
-      { value: "273", label: "tests" },
-      { value: "<6s", label: "test runtime" },
-      { value: "100%", label: "CI pass rate" },
+      { value: "58.8%", label: "RealVuln recall (#1)" },
+      { value: "$0", label: "cost per scan" },
+      { value: "3,147", label: "tests" },
     ],
     overview:
-      "ACR-QA is an enterprise-grade CI/CD platform that brings intelligent code review into any development pipeline. It was my graduation project — built solo from scratch over several months, validated against real codebases.",
+      "ACR-QA is a fully deterministic security scanner I built solo for my graduation project. On the RealVuln 2026 benchmark it out-recalls every frontier-LLM security agent — including GPT-5.5 — at zero cost and with the same auditable answer every single run. No LLM sits in the detection path: it finds bugs by analyzing code, not by guessing about it.",
     problem:
-      "Code review is a bottleneck. Developers spend hours on security checks, style enforcement, and catching test coverage gaps — work that doesn't require human intuition, just consistency and depth. Most AI review tools hallucinate, producing noise that teams quickly learn to ignore.",
+      "Traditional SAST tools drown developers in false positives — 30–70% noise — so teams stop reading them. The 2026 wave bolts LLMs on instead, but they hallucinate vulnerabilities, miss real ones differently on every run, and cost $50+ per scan. A 'clean' LLM scan tells you nothing if tomorrow's run finds different bugs — you can't gate a merge on a model that changes its mind.",
     solution:
-      "A modular review engine that integrates directly into GitHub Actions. Each commit triggers a multi-layer analysis: Policy-as-Code for custom rule enforcement, a Test Gap Analyzer that detects untested code paths, OWASP security automation, and a RAG-powered review engine with hallucination detection using Cerebras AI.",
+      "A purely deterministic engine: AST analysis, intra/inter-procedural taint tracking, and curated rules — no LLM, so it gives bit-identical results every run (CI-enforced). It then PROVES the findings it surfaces are real by firing a live exploit in an ephemeral Docker sandbox, and cryptographically signs every scan with ECDSA-P256 and a post-quantum CRYSTALS-Dilithium3 (FIPS-204) signature. A confidence-tier system surfaces a deterministic ≥2-engine-agreement 'Confirmed' tier at 80% precision.",
     architecture: [
       {
         label: "Entry",
         nodes: [{ name: "GitHub Push" }, { name: "GitHub Actions CI/CD" }],
       },
       {
-        label: "Engine",
+        label: "Detection (deterministic)",
         nodes: [
-          { name: "Policy Engine", sub: "custom rules" },
-          { name: "Test Gap Analyzer", sub: "coverage" },
-          { name: "RAG Review", sub: "Cerebras AI", accent: true },
-          { name: "OWASP Scanner", sub: "security" },
+          { name: "AST + Taint Engine", sub: "no LLM", accent: true },
+          { name: "Semgrep", sub: "corroboration" },
+          { name: "Confidence Tiers", sub: "certain / firm" },
+        ],
+      },
+      {
+        label: "Proof",
+        nodes: [
+          { name: "Exploit Verifier", sub: "Docker detonation" },
+          { name: "Attestation", sub: "ECDSA + Dilithium3" },
         ],
       },
       {
         label: "Storage",
         nodes: [
           { name: "PostgreSQL", sub: "results + history" },
-          { name: "Redis", sub: "embedding cache" },
+          { name: "Redis", sub: "rate limit + queue" },
         ],
-      },
-      {
-        label: "Observability",
-        nodes: [{ name: "Prometheus", sub: "metrics" }, { name: "Grafana", sub: "dashboards" }],
       },
     ],
     highlights: [
       {
-        title: "RAG with hallucination detection",
-        body: "The review engine retrieves relevant code context before querying Cerebras AI, grounding responses in actual code rather than model priors. A secondary validation pass checks for contradictions between suggested fixes and existing test suites.",
+        title: "#1 on RealVuln — beats GPT-5.5 at $0",
+        body: "On the RealVuln 2026 benchmark (22 real vulnerable apps), ACR-QA's deterministic engine reaches 58.8% recall — edging out GPT-5.5 (58.2%), and beating Claude Opus 4.8, Gemini 3.1, and every traditional scanner (~3.3× Semgrep) — at $0 versus the LLM agents' $54–62 per scan.",
       },
       {
-        title: "Policy-as-Code engine",
-        body: "Teams can write custom review rules in a YAML DSL — \"no exposed secrets\", \"all public APIs must have OpenAPI docs\", \"no database calls outside service layer\" — and ACR-QA enforces them on every PR.",
+        title: "Deterministic — no hallucinations",
+        body: "No LLM in the detection path, so every scan returns the exact same finding set (bit-identical, CI-enforced). LLM scanners are non-deterministic — they miss 23–52% of their own findings on the next run — which disqualifies them as a merge gate. ACR-QA's result is reproducible, diffable, and auditable.",
       },
       {
-        title: "Developer Fatigue Tuner",
-        body: "Configurable noise floor: the system learns which categories of feedback a team consistently dismisses and reduces their priority weight. Over time, the signal-to-noise ratio improves without manual configuration.",
+        title: "Exploit verification — proof, not guesses",
+        body: "Each high-severity finding is detonated in an ephemeral Docker sandbox before it's surfaced: SQL injection shows leaked rows, command injection shows blind exec, SSTI returns the evaluated payload. Only verified-exploitable findings enter the auto-block tier.",
       },
       {
-        title: "273 tests in <6 seconds",
-        body: "Test suite is split into unit, integration, and contract layers with pytest. CI runs all 273 in under 6 seconds using parallel workers and Redis-backed test fixtures. 100% green on every merge.",
+        title: "Post-quantum cryptographic attestation",
+        body: "Every scan is signed with ECDSA-P256 AND a post-quantum CRYSTALS-Dilithium3 (FIPS-204) signature — both embed their public key and are independently verifiable offline, so tampering with the findings invalidates the bundle. The release image is Cosign-signed with a Sigstore Rekor entry and ships SLSA L3 provenance.",
       },
     ],
     results: [
-      "273 automated tests with 100% CI pass rate on final submission",
-      "Sub-6-second full test suite — fast enough that developers run it locally",
-      "RAG hallucination rate reduced by validated comparison against known-correct reviews",
-      "Policy engine successfully catches security patterns missed by static analysis alone",
-      "Deployed with Docker Compose; GitHub Actions pipeline from push to verified deploy",
+      "#1 on recall among all external scanners on RealVuln 2026 — 58.8%, edging out GPT-5.5 (58.2%) at $0",
+      "53% recall on 16 never-seen held-out repos — ~2.9× Semgrep — proving it generalizes, not memorizes",
+      "100% reproducible: bit-identical findings every run, enforced by a determinism test in CI",
+      "Deterministic 'Confirmed' tier (≥2-engine agreement) reaches 80% precision with zero LLM",
+      "3,147 tests at 88% CORE coverage; exploit-verified findings with ECDSA + post-quantum Dilithium3 attestation",
     ],
   },
 
