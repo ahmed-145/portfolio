@@ -10,10 +10,10 @@ const inter = Inter({
   display: "swap",
 });
 
-const SITE_URL = "https://portfolio-azure-beta-0b60zh90oz.vercel.app";
+const SITE_URL = "https://ahmed-145.vercel.app";
 const TITLE = "Ahmed Mahmoud Abbas — Backend & DevOps Engineer";
 const DESCRIPTION =
-  "Backend and DevOps engineer building production-grade systems. ACR-QA, Kim, CineGraph, MinuteMark. Open to remote and on-site roles — available now.";
+  "Backend and DevOps engineer building production-grade systems. ACR-QA (#1 on RealVuln 2026), ferrum (Rust AI gateway), Kim, CineGraph. Graduated Jun 2026 — available now for remote or on-site roles.";
 const OG_IMAGE = `${SITE_URL}/og?title=I+build+systems+that+ship.&subtitle=Backend+%26+DevOps+Engineer`;
 
 export const metadata: Metadata = {
@@ -24,7 +24,8 @@ export const metadata: Metadata = {
   keywords: [
     "Backend Engineer", "DevOps Engineer", "SRE", "Kubernetes", "Docker",
     "Rust", "Python", "Node.js", "Terraform", "Prometheus", "Grafana",
-    "ACR-QA", "Cairo", "Remote",
+    "ACR-QA", "ferrum", "CineGraph", "Cairo", "Egypt", "Remote",
+    "FastAPI", "Security Scanner", "AI Gateway",
   ],
   openGraph: {
     title: TITLE,
