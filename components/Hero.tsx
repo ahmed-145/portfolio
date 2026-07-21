@@ -74,8 +74,8 @@ export default function Hero() {
         </h1>
 
         <p className="mt-6 text-[#71717a] text-base md:text-lg mx-auto leading-relaxed text-center">
-          <span className="block">Backend &amp; DevOps Engineer &nbsp;·&nbsp; Final-year CS @ KSIU</span>
-          <span className="block mt-1">Graduating June 2026 &nbsp;—&nbsp; available now for the right opportunity</span>
+          <span className="block">Backend &amp; DevOps Engineer &nbsp;·&nbsp; BSc CS · KSIU &nbsp;·&nbsp; Cairo, Egypt</span>
+          <span className="block mt-1">Graduated Jun 2026 &nbsp;—&nbsp; available now for the right opportunity</span>
         </p>
 
         <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">

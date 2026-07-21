@@ -5,10 +5,10 @@ import { useInView } from "@/hooks/useInView";
 type Stat = { value: number; suffix?: string; label: string; duration: number };
 
 const stats: Stat[] = [
-  { value: 8, label: "projects shipped", duration: 700 },
+  { value: 10, label: "projects shipped", duration: 700 },
   { value: 3147, suffix: "+", label: "automated tests", duration: 1100 },
-  { value: 225, suffix: " req/sec", label: "req/sec throughput", duration: 1100 },
-  { value: 3, label: "internships", duration: 700 },
+  { value: 2715, suffix: " req/sec", label: "peak throughput", duration: 1400 },
+  { value: 255, suffix: "+", label: "leetcode solved", duration: 900 },
 ];
 
 // Strong ease-out curve, matches --ease-out in CSS
@@ -44,8 +44,7 @@ function CountUp({ value, duration, active }: { value: number; duration: number;
 export default function MetricsBar() {
   const { ref, inView } = useInView(0.1);
 
-  // Labels stay constant — only the metric in "req/sec throughput" gets the throughput suffix
-  // applied numerically via the count-up. We render plain numbers for clarity.
+  // CountUp animates just the number; suffix (if any) renders statically alongside it.
   return (
     <section
       ref={ref as React.RefObject<HTMLElement>}
@@ -61,6 +60,7 @@ export default function MetricsBar() {
             >
               <span className="font-mono text-3xl font-bold text-[#6366f1] leading-none tabular-nums">
                 <CountUp value={stat.value} duration={stat.duration} active={inView} />
+                {stat.suffix && <span className="text-2xl">{stat.suffix}</span>}
               </span>
               <span className="font-mono text-xs text-[#52525b] mt-1.5 uppercase tracking-wider">
                 {stat.label}

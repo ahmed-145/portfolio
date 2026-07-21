@@ -12,10 +12,14 @@ const COMMANDS: Record<string, string[]> = {
   ],
   "ls projects/": [
     "acr-qa/         → deterministic security scanner · beats gpt-5.5 at $0",
+    "ferrum/         → pure rust ai gateway · <500µs overhead · in dev",
     "kim/            → cross-platform ai agent (rust + python)",
     "cinegraph/      → semantic film discovery canvas",
+    "nazir/          → linux ai agent platform · 10 phases shipped",
+    "decodesound/    → ai sdk music translator · groq + whisper",
     "minutemark/     → ai exam grading, validated vs humans",
-    "url-shortener/  → devops capstone, 225 req/sec",
+    "kasane/         → japanese color palette tool · ai text-to-palette",
+    "url-shortener/  → devops capstone, 2715 req/sec",
     "redis/          → built from scratch in rust",
   ],
   "cat skills.txt": [
@@ -26,16 +30,18 @@ const COMMANDS: Record<string, string[]> = {
   ],
   "./status.sh": [
     "→ open to remote & on-site roles",
-    "→ available now",
-    "→ graduating june 2026",
-    "→ preference: backend, devops, sre",
+    "→ graduated june 2026 — available now",
+    "→ preference: backend, devops, sre · rust/python/c++",
+    "→ utc+2 — great overlap with european teams",
   ],
   "git log --oneline": [
     "a1b2c3d (head) built redis from scratch in rust",
+    "b2c3d4e shipped ferrum — pure rust ai gateway (in dev)",
     "f4e5d6c shipped kim — ai agent with full os control",
     "7g8h9i0 acr-qa: #1 on realvuln (58.8%) · beats gpt-5.5 · 3,147 tests",
     "j1k2l3m delivered 4 prototypes to nbk egypt r&d",
     "n4o5p6q icpc selected · ecpc 2024 honorable mention",
+    "r7s8t9u graduated bsc cs · ksiu · june 2026",
   ],
   "ping opportunity": [
     "PING opportunity (available@now) 56 bytes of data.",
@@ -144,12 +150,12 @@ export default function About() {
               GPT-5.5 at $0, shipped four prototypes to{" "}
               <span className="text-[#6366f1] font-medium">NBK Egypt&apos;s</span> internal teams,
               and delivered a full observability stack handling{" "}
-              <span className="text-[#f4f4f5]">225 req/sec</span> under Egypt&apos;s nationally
+              <span className="text-[#f4f4f5]">2,715 req/sec</span> under Egypt&apos;s nationally
               sponsored{" "}
               <span className="text-[#6366f1] font-medium">DEPI program</span>.
             </p>
             <p>
-              Selected for ICPC, Honorable Mention at ECPC 2024. Graduating June 2026 — available
+              Selected for ICPC, Honorable Mention at ECPC 2024. Graduated June 2026 — available
               now for the right opportunity.
             </p>
             <p>

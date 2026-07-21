@@ -43,7 +43,7 @@ const featured: Project[] = [
     badgeColor: "amber",
     oneliner: "Production-ready URL shortener with enterprise-grade monitoring, alerting, and infrastructure as code.",
     description:
-      "Built a complete DevOps-first system delivering 225 req/sec at 99.93% uptime. Instrumented with custom Prometheus metrics across 3 Grafana dashboards (19 panels), K8s manifests with HPA, liveness/readiness probes, and PodDisruptionBudgets, Terraform IaC (EC2, S3, IAM modules), GitHub Actions CI/CD (5 stages: test → build → push → deploy → verify), and k6 load testing at P95 62ms. Disaster recovery with automated backup scripts (15-min RTO, 1-hour RPO). Multi-channel alerting (Slack, Email, Discord). Security audited — zero critical vulnerabilities.",
+      "Built a complete DevOps-first system delivering 2,715 req/sec redirects (P50 32ms, max 169ms) at 99.93% uptime. Instrumented with custom Prometheus metrics across 3 Grafana dashboards (19 panels), K8s manifests with HPA, liveness/readiness probes, and PodDisruptionBudgets, Terraform IaC (EC2, S3, IAM modules), GitHub Actions CI/CD (5 stages: test → build → push → deploy → verify), and k6 load testing under 100 concurrent users. Disaster recovery with automated backup scripts (15-min RTO, 1-hour RPO). Multi-channel alerting (Slack, Email, Discord). Security audited — zero critical vulnerabilities.",
     stack: ["Node.js", "Docker", "Kubernetes", "Prometheus", "Grafana", "Terraform", "GitHub Actions", "k6"],
     github: "https://github.com/ahmed-145/containerized-url-shortener-monnitoring",
     caseStudy: "/projects/url-shortener",
@@ -79,10 +79,13 @@ const featured: Project[] = [
 ];
 
 const moreWork = [
+  { name: "ferrum", stack: ["Rust", "tokio", "axum", "reqwest", "DashMap"], github: "https://github.com/ahmed-145/ferrum", note: "IN DEV" },
+  { name: "Nazir", stack: ["Python", "Claude Code", "Gemini CLI", "systemd", "FastAPI"], github: "https://github.com/ahmed-145/Nazir" },
+  { name: "Kasane", stack: ["Next.js 14", "TypeScript", "Groq", "Framer Motion"], github: "https://github.com/ahmed-145/kasane" },
   { name: "DecodedSound", stack: ["Next.js 15", "TypeScript", "Groq", "Whisper", "Prisma"], github: "https://github.com/ahmed-145/DecodedSound" },
   { name: "OFAC Sanctions Screening", stack: ["Python", "FastAPI", "Ollama", "RAG"], github: "https://github.com/ahmed-145/ofac-sdn-rag-search" },
   { name: "Credit Risk Prediction", stack: ["Python", "scikit-learn", "SMOTE", "Streamlit"], github: "https://github.com/ahmed-145/CreditRiskPrediction" },
-  { name: "Essi", stack: ["Python", "FastAPI", "Next.js", "PostgreSQL"], github: "https://github.com/ahmed-145/Essi" },
+  { name: "Essi", stack: ["Python", "FastAPI", "React Native", "PostgreSQL"], github: "https://github.com/ahmed-145/Essi" },
   { name: "Secure PDF Portal", stack: ["Java", "Spring Boot", "RSA/AES", "Tomcat"], github: "https://github.com/ahmed-145/secure-customer-pdf-portal" },
   { name: "QariAI", stack: ["Swift", "iOS", "WhisperKit"], github: "https://github.com/AmEgy/QariAI" },
   { name: "Outlook → SFTP", stack: ["Java", "JACOB", "JSch", "SFTP"], github: "https://github.com/ahmed-145/Outlook-SFTP-Automation" },
@@ -251,8 +254,13 @@ export default function Projects() {
                 } hover:bg-[#111111]`}
                 style={{ transition: "background-color 160ms var(--ease-out)" }}
               >
-                <span className="font-mono text-sm text-[#a1a1aa] group-hover:text-[#e4e4e7] min-w-[140px]" style={{ transition: "color 160ms var(--ease-out)" }}>
+                <span className="font-mono text-sm text-[#a1a1aa] group-hover:text-[#e4e4e7] min-w-[140px] flex items-center gap-2" style={{ transition: "color 160ms var(--ease-out)" }}>
                   {p.name}
+                  {p.note && (
+                    <span className="font-mono text-[9px] font-bold px-1.5 py-0.5 rounded border border-[#f59e0b]/40 text-[#f59e0b] bg-[#f59e0b]/5 tracking-widest uppercase">
+                      {p.note}
+                    </span>
+                  )}
                 </span>
                 <div className="flex flex-wrap gap-2 flex-1">
                   {p.stack.map((s) => (

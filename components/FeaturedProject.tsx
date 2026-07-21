@@ -68,8 +68,9 @@ export default function FeaturedProject() {
           <div className="flex flex-wrap gap-4 mb-8">
             {[
               { value: "58.8%", label: "RealVuln recall · #1" },
+              { value: "96.4%", label: "confirmed precision" },
               { value: "$0", label: "cost per scan" },
-              { value: "3,147", label: "tests" },
+              { value: "3,147", label: "tests · 88% coverage" },
             ].map((stat) => (
               <div
                 key={stat.label}

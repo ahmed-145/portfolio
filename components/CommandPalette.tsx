@@ -24,11 +24,15 @@ const NAV_SECTIONS = [
 ];
 
 const PROJECTS = [
-  { id: "acr-qa", label: "ACR-QA", subtitle: "Deterministic security scanner · Python, FastAPI · #1 on RealVuln, beats GPT-5.5 at $0", href: "/projects/acr-qa", github: "https://github.com/ahmed-145/ACR-QA" },
+  { id: "acr-qa", label: "ACR-QA", subtitle: "Deterministic security scanner · #1 on RealVuln 2026, beats GPT-5.5 at $0", href: "/projects/acr-qa", github: "https://github.com/ahmed-145/ACR-QA" },
+  { id: "ferrum", label: "ferrum", subtitle: "Pure Rust AI gateway · <500µs overhead · tokio + axum · IN DEV", href: "https://github.com/ahmed-145/ferrum", github: "https://github.com/ahmed-145/ferrum" },
   { id: "kim", label: "Kim", subtitle: "Cross-platform AI agent · Rust, Tauri, Python, MCP", href: "/projects/kim", github: "https://github.com/AdamMagued/kim" },
-  { id: "cinegraph", label: "CineGraph", subtitle: "Semantic film discovery canvas · React, Qdrant", href: "/projects/cinegraph", github: "https://github.com/ahmed-145/CineGraph" },
+  { id: "cinegraph", label: "CineGraph", subtitle: "Semantic film discovery canvas · React, Qdrant, FastAPI", href: "/projects/cinegraph", github: "https://github.com/ahmed-145/CineGraph" },
+  { id: "nazir", label: "Nazir", subtitle: "Linux AI agent platform · Claude + Gemini CLI · 10 phases", href: "https://github.com/ahmed-145/Nazir", github: "https://github.com/ahmed-145/Nazir" },
+  { id: "decodesound", label: "DecodedSound", subtitle: "AI SDK music translator · Next.js 15, Groq, Whisper", href: "https://github.com/ahmed-145/DecodedSound", github: "https://github.com/ahmed-145/DecodedSound" },
+  { id: "kasane", label: "Kasane", subtitle: "AI Japanese color palette tool · Next.js 14, Groq", href: "https://github.com/ahmed-145/kasane", github: "https://github.com/ahmed-145/kasane" },
   { id: "minutemark", label: "MinuteMark", subtitle: "AI exam grading · FastAPI, Groq, Gemini", href: "/projects/minutemark", github: "https://github.com/ahmed-145/MinuteMark" },
-  { id: "url-shortener", label: "URL Shortener", subtitle: "DevOps capstone · K8s, Terraform, Prometheus", href: "/projects/url-shortener", github: "https://github.com/ahmed-145/containerized-url-shortener-monnitoring" },
+  { id: "url-shortener", label: "URL Shortener", subtitle: "DevOps capstone · K8s, Terraform, Prometheus · 2,715 req/sec", href: "/projects/url-shortener", github: "https://github.com/ahmed-145/containerized-url-shortener-monnitoring" },
   { id: "redis-from-scratch", label: "Redis from Scratch", subtitle: "Key-value store · Pure Rust", href: "/projects/redis-from-scratch", github: "https://github.com/ahmed-145/REDIS_RUST" },
 ];
 

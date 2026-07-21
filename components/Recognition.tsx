@@ -2,9 +2,72 @@
 import { useInView } from "@/hooks/useInView";
 import { useSpotlight } from "@/hooks/useSpotlight";
 
+interface RecognitionItem {
+  emoji: string;
+  title: string;
+  meta: string;
+  note?: string;
+}
+
+const items: RecognitionItem[] = [
+  {
+    emoji: "🏆",
+    title: "ICPC ECPC 2024 — Honorable Mention",
+    meta: "Placed 2nd among KSIU teams · Led a 3-member team · July 2024",
+  },
+  {
+    emoji: "🇪🇬",
+    title: "Digital Egypt Pioneers Initiative (DEPI) — MCIT",
+    meta: "Nationally sponsored DevOps program · Ministry of Communications & IT · 2025",
+    note: "Competitive national selection",
+  },
+  {
+    emoji: "🌍",
+    title: "COP27 Youth Volunteer — KSIU Delegation",
+    meta: "UN Climate Conference · Sharm El-Sheikh, Egypt · Nov 2022",
+  },
+  {
+    emoji: "📡",
+    title: "IEEE Student Branch — KSIU",
+    meta: "Active member · technical events & workshops",
+  },
+  {
+    emoji: "☁️",
+    title: "Huawei ICT Academy Participant",
+    meta: "Cloud & AI certification track · KSIU",
+  },
+];
+
+function RecognitionCard({ item, index }: { item: RecognitionItem; index: number }) {
+  const spotRef = useSpotlight<HTMLDivElement>();
+  return (
+    <div
+      ref={spotRef}
+      className="bg-[#111111] border border-[#1a1a1a] border-l-[3px] border-l-[#6366f1] rounded-lg p-5 card-hover flex items-start gap-4"
+      style={{ ["--stagger-index" as string]: index }}
+    >
+      <span className="text-xl shrink-0 mt-0.5" role="img" aria-hidden="true">
+        {item.emoji}
+      </span>
+      <div className="min-w-0">
+        <p className="font-mono text-sm font-semibold text-[#f4f4f5] leading-snug">
+          {item.title}
+        </p>
+        <p className="font-mono text-xs text-[#71717a] mt-1 leading-relaxed">
+          {item.meta}
+        </p>
+        {item.note && (
+          <span className="inline-block mt-2 font-mono text-[9px] uppercase tracking-widest px-1.5 py-0.5 rounded border border-[#6366f1]/30 text-[#6366f1] bg-[#6366f1]/5">
+            {item.note}
+          </span>
+        )}
+      </div>
+    </div>
+  );
+}
+
 export default function Recognition() {
   const { ref, inView } = useInView();
-  const cardRef = useSpotlight<HTMLDivElement>();
 
   return (
     <section
@@ -18,20 +81,10 @@ export default function Recognition() {
           <span className="text-[#f4f4f5]">recognition</span>
         </h2>
 
-        <div className="max-w-2xl mx-auto">
-          <div ref={cardRef} className="bg-[#111111] border border-[#1a1a1a] border-l-[4px] border-l-[#6366f1] rounded-lg p-6 card-hover">
-            <div className="flex items-start gap-4">
-              <span className="text-2xl" role="img" aria-label="trophy">🏆</span>
-              <div>
-                <p className="font-mono text-sm font-semibold text-[#f4f4f5]">
-                  ICPC ECPC 2024 — Honorable Mention
-                </p>
-                <p className="font-mono text-xs text-[#71717a] mt-1">
-                  Placed 2nd among KSIU teams &nbsp;·&nbsp; Led a 3-member team &nbsp;·&nbsp; July 2024
-                </p>
-              </div>
-            </div>
-          </div>
+        <div className={`stagger grid sm:grid-cols-2 gap-4 ${inView ? "in-view" : ""}`}>
+          {items.map((item, i) => (
+            <RecognitionCard key={item.title} item={item} index={i} />
+          ))}
         </div>
       </div>
     </section>

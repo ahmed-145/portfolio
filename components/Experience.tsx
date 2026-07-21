@@ -22,7 +22,7 @@ const experience: ExperienceEntry[] = [
       "Automated CI/CD pipelines with Git, Jenkins, and Docker — reduced deployment time by 40%.",
       "Built reusable IaC modules with Terraform and Ansible to provision 5+ environments.",
       "Deployed and monitored containerized microservices on Kubernetes with Prometheus and Grafana.",
-      "Capstone: production URL shortener with 3 Grafana dashboards, K8s HPA, Terraform IaC, CI/CD, and load tested at 225 req/sec.",
+      "Capstone: production URL shortener with 3 Grafana dashboards, K8s HPA, Terraform IaC, CI/CD, and load tested at 2,715 req/sec (redirects, k6).",
     ],
   },
   {
