@@ -108,7 +108,9 @@ export default function Hero() {
             rel="noopener noreferrer"
             className="link-arrow inline-flex items-center gap-1 text-[#71717a] font-mono text-xs hover:text-[#6366f1] tracking-wider"
           >
-            linkedin.com/in/ahmed-mahmoud-abbas <span className="arrow">→</span>
+            <span className="hidden sm:inline">linkedin.com/in/ahmed-mahmoud-abbas</span>
+            <span className="sm:hidden">LinkedIn</span>
+            <span className="arrow">→</span>
           </a>
           <span className="hidden sm:inline text-[#2a2a2a] font-mono text-xs">·</span>
           <button
@@ -116,7 +118,7 @@ export default function Hero() {
               const e = new KeyboardEvent("keydown", { key: "k", metaKey: true, bubbles: true });
               window.dispatchEvent(e);
             }}
-            className="inline-flex items-center gap-1.5 font-mono text-xs text-[#3f3f46] hover:text-[#6366f1]"
+            className="hidden sm:inline-flex items-center gap-1.5 font-mono text-xs text-[#3f3f46] hover:text-[#6366f1]"
             style={{ transition: "color 160ms var(--ease-out)", background: "none", border: "none", cursor: "pointer", padding: 0 }}
           >
             <kbd className="px-1.5 py-0.5 rounded border border-[#2a2a2a] text-[#3f3f46] font-mono" style={{ fontSize: "10px" }}>⌘K</kbd>

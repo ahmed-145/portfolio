@@ -539,6 +539,12 @@ body::before {
 .cmd-item[data-selected="true"] .cmd-icon svg {
   color: #6366f1 !important;
 }
+@media (max-width: 600px) {
+  .cmd-panel {
+    max-width: calc(100vw - 24px) !important;
+    margin: 0 12px;
+  }
+}
 @media (prefers-reduced-motion: reduce) {
   .cmd-overlay, .cmd-panel { animation: none; }
 }

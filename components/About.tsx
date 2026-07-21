@@ -197,7 +197,7 @@ export default function About() {
               {/* Scrollable output — fills remaining height */}
               <div
                 ref={termRef}
-                className="p-4 font-mono text-sm cursor-text rounded-b-lg"
+                className="p-4 font-mono text-xs sm:text-sm cursor-text rounded-b-lg"
                 style={{ flex: 1, overflowY: "auto", overflowX: "hidden" }}
                 onClick={() => inputEnabled && inputRef.current?.focus()}
               >

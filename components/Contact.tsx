@@ -32,15 +32,15 @@ function EmailRow({ index }: { index: number }) {
         <Mail className="copy-icon-default contact-icon w-5 h-5 text-[#71717a] group-hover:text-[#6366f1]" />
         <Check className="copy-icon-copied w-5 h-5 text-[#4ade80]" />
       </span>
-      <span className="relative flex items-center gap-2 flex-wrap">
-        <span className="relative inline-flex">
+      <span className="relative flex items-center gap-2 flex-wrap min-w-0">
+        <span className="relative inline-flex min-w-0 max-w-full">
           <span
-            className="copy-label-default font-mono text-lg text-[#a1a1aa] group-hover:text-indigo-400 underline-offset-4 group-hover:underline"
+            className="copy-label-default font-mono text-sm sm:text-lg text-[#a1a1aa] group-hover:text-indigo-400 underline-offset-4 group-hover:underline truncate block"
             style={{ transition: "color 160ms var(--ease-out)" }}
           >
             {EMAIL}
           </span>
-          <span className="copy-label-copied absolute inset-0 font-mono text-lg">
+          <span className="copy-label-copied absolute inset-0 font-mono text-sm sm:text-lg">
             copied to clipboard
           </span>
         </span>

@@ -58,9 +58,9 @@ export default function MetricsBar() {
               className="flex flex-col items-center text-center md:px-8 first:md:pl-0 last:md:pr-0"
               style={{ ["--stagger-index" as string]: i }}
             >
-              <span className="font-mono text-3xl font-bold text-[#6366f1] leading-none tabular-nums">
+              <span className="font-mono text-2xl sm:text-3xl font-bold text-[#6366f1] leading-none tabular-nums flex items-baseline flex-wrap justify-center gap-0.5">
                 <CountUp value={stat.value} duration={stat.duration} active={inView} />
-                {stat.suffix && <span className="text-2xl">{stat.suffix}</span>}
+                {stat.suffix && <span className="text-xl sm:text-2xl">{stat.suffix}</span>}
               </span>
               <span className="font-mono text-xs text-[#52525b] mt-1.5 uppercase tracking-wider">
                 {stat.label}
