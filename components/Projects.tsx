@@ -79,7 +79,7 @@ const featured: Project[] = [
 ];
 
 const moreWork = [
-  { name: "ferrum", stack: ["Rust", "tokio", "axum", "reqwest", "DashMap"], github: "https://github.com/ahmed-145/ferrum", note: "IN DEV" },
+  { name: "ferrum", stack: ["Rust", "tokio", "axum", "reqwest", "DashMap"], github: "https://github.com/ahmed-145/ferrum-ai-gateway", note: "IN DEV" },
   { name: "Nazir", stack: ["Python", "Claude Code", "Gemini CLI", "systemd", "FastAPI"], github: "https://github.com/ahmed-145/Nazir" },
   { name: "Kasane", stack: ["Next.js 14", "TypeScript", "Groq", "Framer Motion"], github: "https://github.com/ahmed-145/kasane" },
   { name: "DecodedSound", stack: ["Next.js 15", "TypeScript", "Groq", "Whisper", "Prisma"], github: "https://github.com/ahmed-145/DecodedSound" },

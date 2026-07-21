@@ -25,7 +25,7 @@ const NAV_SECTIONS = [
 
 const PROJECTS = [
   { id: "acr-qa", label: "ACR-QA", subtitle: "Deterministic security scanner · #1 on RealVuln 2026, beats GPT-5.5 at $0", href: "/projects/acr-qa", github: "https://github.com/ahmed-145/ACR-QA" },
-  { id: "ferrum", label: "ferrum", subtitle: "Pure Rust AI gateway · <500µs overhead · tokio + axum · IN DEV", href: "https://github.com/ahmed-145/ferrum", github: "https://github.com/ahmed-145/ferrum" },
+  { id: "ferrum", label: "ferrum", subtitle: "Pure Rust AI gateway · <500µs overhead · tokio + axum · IN DEV", href: "https://github.com/ahmed-145/ferrum-ai-gateway", github: "https://github.com/ahmed-145/ferrum-ai-gateway" },
   { id: "kim", label: "Kim", subtitle: "Cross-platform AI agent · Rust, Tauri, Python, MCP", href: "/projects/kim", github: "https://github.com/AdamMagued/kim" },
   { id: "cinegraph", label: "CineGraph", subtitle: "Semantic film discovery canvas · React, Qdrant, FastAPI", href: "/projects/cinegraph", github: "https://github.com/ahmed-145/CineGraph" },
   { id: "nazir", label: "Nazir", subtitle: "Linux AI agent platform · Claude + Gemini CLI · 10 phases", href: "https://github.com/ahmed-145/Nazir", github: "https://github.com/ahmed-145/Nazir" },
