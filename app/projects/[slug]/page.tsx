@@ -320,7 +320,7 @@ const CASE_STUDIES: Record<string, CaseStudy> = {
     github: "https://github.com/ahmed-145/containerized-url-shortener-monnitoring",
     stack: ["Node.js", "Docker", "Kubernetes", "Prometheus", "Grafana", "Terraform", "GitHub Actions", "k6"],
     stats: [
-      { value: "225", label: "req/sec" },
+      { value: "2,715", label: "req/sec" },
       { value: "99.93%", label: "uptime" },
       { value: "62ms", label: "P95 latency" },
     ],
@@ -374,7 +374,7 @@ const CASE_STUDIES: Record<string, CaseStudy> = {
       },
     ],
     results: [
-      "225 req/sec sustained throughput under k6 load test",
+      "2,715 req/sec sustained throughput under k6 load test",
       "99.93% uptime across the testing period",
       "P95 response time of 62ms at full load",
       "Terraform IaC provisions the full environment from scratch in under 10 minutes",
