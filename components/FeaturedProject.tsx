@@ -18,7 +18,7 @@ const pipeline = [
 ];
 
 const features = [
-  { title: "#1 on RealVuln — beats GPT-5.5 at $0", body: "58.8% recall on the RealVuln 2026 benchmark — edging out GPT-5.5 (58.2%), Opus 4.8, and Gemini, and ~3.3× Semgrep — at $0 vs the LLM agents' $54–62 per scan.", accent: "#6366f1" },
+  { title: "#1 among traditional SAST on RealVuln", body: "58.8% recall on the RealVuln 2026 benchmark — edging out GPT-5.5's mean (58.2%) in-sample, ~3.3× Semgrep — at $0 vs the LLM agents' $54–62 per scan. On 16 repos it never saw, recall holds at 53.0%.", accent: "#6366f1" },
   { title: "Deterministic — no hallucinations", body: "No LLM in the detection path, so every scan returns the exact same finding set (bit-identical, CI-enforced). LLM scanners miss 23–52% of their own findings on the next run.", accent: "#6366f1" },
   { title: "Exploit verification — proof, not guesses", body: "Each high-severity finding is detonated in an ephemeral Docker sandbox before it's surfaced: SQLi shows leaked rows, command injection shows blind exec. Only verified findings auto-block.", accent: "#6366f1" },
   { title: "Post-quantum attestation", body: "Every scan is signed with ECDSA-P256 and a post-quantum CRYSTALS-Dilithium3 (FIPS-204) signature — both verifiable offline, so tampering with the findings invalidates the bundle.", accent: "#6366f1" },
@@ -59,7 +59,7 @@ export default function FeaturedProject() {
           {/* Description */}
           <p className="text-[#a1a1aa] text-base leading-relaxed max-w-3xl mb-8">
             A fully deterministic security scanner — no LLM in the detection path. On the RealVuln 2026
-            benchmark it out-recalls every frontier-LLM agent, including GPT-5.5, at $0 and with the same
+            benchmark it beats every traditional scanner and edges GPT-5.5's mean, at $0 and with the same
             auditable answer every run. It proves the findings it surfaces are real by firing a live exploit
             in a Docker sandbox, then signs every scan with ECDSA-P256 + post-quantum Dilithium3. Built solo.
           </p>
@@ -67,10 +67,10 @@ export default function FeaturedProject() {
           {/* Stats */}
           <div className="flex flex-wrap gap-4 mb-8">
             {[
-              { value: "58.8%", label: "RealVuln recall · #1" },
+              { value: "58.8%", label: "RealVuln recall · #1 vs SAST" },
               { value: "96.4%", label: "confirmed precision" },
               { value: "$0", label: "cost per scan" },
-              { value: "3,147", label: "tests · 88% coverage" },
+              { value: "3,142", label: "tests · 88% coverage" },
             ].map((stat) => (
               <div
                 key={stat.label}
