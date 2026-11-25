@@ -58,9 +58,10 @@ export default function FeaturedProject() {
 
           {/* Description */}
           <p className="text-[#a1a1aa] text-base leading-relaxed max-w-3xl mb-8">
-            A fully deterministic security scanner — no LLM in the detection path. On the RealVuln 2026
-            benchmark it beats every traditional scanner and edges GPT-5.5's mean, at $0 and with the same
-            auditable answer every run. It proves the findings it surfaces are real by firing a live exploit
+            A fully deterministic security scanner — no LLM in the detection path. Self-evaluated on the
+            public RealVuln 2026 benchmark (not officially submitted or listed): 58.8% recall, beating every
+            traditional scanner and edging the GPT-5.5 mean (58.2%), at $0 and with the same auditable answer
+            every run. It proves the findings it surfaces are real by firing a live exploit
             in a Docker sandbox, then signs every scan with ECDSA-P256 + post-quantum Dilithium3. Built solo.
           </p>
 
