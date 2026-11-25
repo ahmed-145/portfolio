@@ -38,7 +38,7 @@ const COMMANDS: Record<string, string[]> = {
     "a1b2c3d (head) built redis from scratch in rust",
     "b2c3d4e shipped ferrum — pure rust ai gateway (in dev)",
     "f4e5d6c shipped kim — ai agent with full os control",
-    "7g8h9i0 acr-qa: #1 on realvuln (58.8%) · beats gpt-5.5 · 3,147 tests",
+    "7g8h9i0 acr-qa: #1 vs traditional sast on realvuln (58.8%) · edges gpt-5.5 mean · 3,142 tests",
     "j1k2l3m delivered 4 prototypes to nbk egypt r&d",
     "n4o5p6q icpc selected · ecpc 2024 honorable mention",
     "r7s8t9u graduated bsc cs · ksiu · june 2026",
