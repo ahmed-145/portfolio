@@ -13,7 +13,7 @@ const inter = Inter({
 const SITE_URL = "https://ahmed-145.vercel.app";
 const TITLE = "Ahmed Mahmoud Abbas — Backend & DevOps Engineer";
 const DESCRIPTION =
-  "Backend and DevOps engineer building production-grade systems. ACR-QA (#1 on RealVuln 2026), ferrum (Rust AI gateway), Kim, CineGraph. Graduated Jun 2026 — available now for remote or on-site roles.";
+  "Backend and DevOps engineer building production-grade systems. ACR-QA (#1 among traditional SAST on RealVuln 2026, self-evaluated), ferrum (Rust AI gateway), Kim, CineGraph. Graduated Jun 2026 — available now for remote or on-site roles.";
 const OG_IMAGE = `${SITE_URL}/og?title=I+build+systems+that+ship.&subtitle=Backend+%26+DevOps+Engineer`;
 
 export const metadata: Metadata = {
